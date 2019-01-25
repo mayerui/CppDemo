@@ -1,3 +1,5 @@
+//变长数组的应用，联系结构体协议
+
 #include <iostream>
 #include <string>
 #include <memory>

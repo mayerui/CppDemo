@@ -3,7 +3,7 @@
 
 using namespace std;
 
-template <class Reciever> 
+template <class Reciever>
 class Command
 {
     typedef void (Reciever::*Action)();

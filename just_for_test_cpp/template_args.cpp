@@ -3,11 +3,10 @@
 #include <list>
 #include <string>
 
-template <typename T>
 struct List {
-  void emplace(T s) { l_.push_back(std::move(s)); }
-  template <typename... Args> void emplace(T s, Args... args) {
-    l_.push_back(std::move(s));
+  void emplace(std::string &&s) { l_.push_back(s); }
+  template <typename... Args> void emplace(std::string &&s, Args &&...args) {
+    l_.push_back(s);
     this->emplace(args...);
   }
 
@@ -24,10 +23,8 @@ struct List {
 };
 
 int main() {
-  List<std::string> list;
+  List list;
   list.emplace("1", "2");
-  list.visit([](std::string_view s) {
-    std::cout << s << std::endl;
-  });
+  list.visit([](std::string_view s) { std::cout << s << std::endl; });
   return 0;
 }

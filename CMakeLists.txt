@@ -2,10 +2,10 @@ cmake_minimum_required (VERSION 3.8)
 project(Demo)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS True)
-set(EXPORT_COMPILE_COMMANDS True)
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_BUILD_TYPE Debug)
 
-set(TARGET_NAME Demo)
+set(TARGET_NAME demo)
 
 file(GLOB SOURCE_FILES
   ${CMAKE_CURRENT_SOURCE_DIR}/demo.cpp

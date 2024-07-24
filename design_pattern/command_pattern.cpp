@@ -3,21 +3,21 @@
 
 using namespace std;
 
-template <class Reciever>
+template <class Receiver>
 class Command
 {
-    typedef void (Reciever::*Action)();
+    typedef void (Receiver::*Action)();
 
   public:
-    Command(Reciever *r, Action a) : _r(r), _a(a){};
+    Command(Receiver *r, Action a) : _r(r), _a(a){};
     void execute() { (_r->*_a)(); }
 
   private:
-    Reciever *_r;
+    Receiver *_r;
     Action _a;
 };
 
-class Reciever
+class Receiver
 {
   public:
     void action() { cout << "action" << endl; }
@@ -25,7 +25,7 @@ class Reciever
 
 int main()
 {
-    Reciever r;
-    Command<Reciever> c(&r, &Reciever::action);
+    Receiver r;
+    Command<Receiver> c(&r, &Receiver::action);
     c.execute();
 }
